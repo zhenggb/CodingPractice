@@ -3,10 +3,14 @@ package com.kataPractice;
 public class ISBN {
 
 	public static boolean isVaildISBN(String isbn) {
-		if (isbn.equals("9780470059029"))
-			return true;
-		if (isbn.equals("9780471486480"))
-			return true;
+		int summing = 0;
+		for (int i = 0; i < 12; i = i + 2) {
+			summing = summing + Integer.parseInt(isbn.substring(i, i + 1));
+			summing = summing + Integer.parseInt(isbn.substring(i + 1, i + 2)) * 3;
+		}
+		int checkDigit = (10 - summing % 10) % 10;
+		if (checkDigit == Integer.parseInt(isbn.substring(12, 13)))
+				return true;
 		return false;
 	}
 
