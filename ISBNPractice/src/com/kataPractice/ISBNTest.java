@@ -33,4 +33,9 @@ public class ISBNTest {
 	public void isVaildISBN5Test() {
 		assertEquals(true, ISBN.isVaildISBN("9780262134729"));
 	}
+	
+	@Test
+	public void not13DigitTest(){
+		assertEquals(false, ISBN.isVaildISBN("9780478"));
+	}
 }
