@@ -13,4 +13,10 @@ public class ISBNTest {
 	public void notVaildISBNTest(){
 		assertEquals(false, ISBN.isVaildISBN("9780470059028"));
 	}
+
+	@Test
+	public void isAnotherVaildISBNTest(){
+		assertEquals(true, ISBN.isVaildISBN("9780471486480"));
+	}
+
 }
