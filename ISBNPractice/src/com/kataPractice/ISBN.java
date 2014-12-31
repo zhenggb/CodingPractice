@@ -8,6 +8,7 @@ public class ISBN {
 	}
 	
 	public boolean isVaildISBN() {
+		isbn = isbn.replaceAll(" ", "");
 		if (isbn.length() != 13)
 			return false;
 		try {
