@@ -45,4 +45,9 @@ public class ISBNTest {
 	public void notVaildDigitTest(){
 		assertEquals(false, isbn.isVaildISBN("978047xxxxxx8"));
 	}
+	
+	@Test
+	public void isVaildISBNWithSpaceTest() {
+		assertEquals(true, isbn.isVaildISBN("978 0 471 48648 0"));
+	}
 }
