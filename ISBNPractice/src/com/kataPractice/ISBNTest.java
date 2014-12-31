@@ -4,43 +4,45 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class ISBNTest {
+	ISBN isbn = new ISBN();
+	
 	@Test
 	public void isVaildISBN1Test() {
-		assertEquals(true, ISBN.isVaildISBN("9780470059029"));
+		assertEquals(true, isbn.isVaildISBN("9780470059029"));
 	}
 	
 	@Test
 	public void notVaildISBNTest(){
-		assertEquals(false, ISBN.isVaildISBN("9780470059028"));
+		assertEquals(false, isbn.isVaildISBN("9780470059028"));
 	}
 	
 	@Test
 	public void isVaildISBN2Test() {
-		assertEquals(true, ISBN.isVaildISBN("9780471486480"));
+		assertEquals(true, isbn.isVaildISBN("9780471486480"));
 	}
 	
 	@Test
 	public void isVaildISBN3Test() {
-		assertEquals(true, ISBN.isVaildISBN("9780596809485"));
+		assertEquals(true, isbn.isVaildISBN("9780596809485"));
 	}
 	
 	@Test
 	public void isVaildISBN4Test() {
-		assertEquals(true, ISBN.isVaildISBN("9780131495050"));
+		assertEquals(true, isbn.isVaildISBN("9780131495050"));
 	}
 	
 	@Test
 	public void isVaildISBN5Test() {
-		assertEquals(true, ISBN.isVaildISBN("9780262134729"));
+		assertEquals(true, isbn.isVaildISBN("9780262134729"));
 	}
 	
 	@Test
 	public void not13DigitTest(){
-		assertEquals(false, ISBN.isVaildISBN("9780478"));
+		assertEquals(false, isbn.isVaildISBN("9780478"));
 	}
 	
 	@Test
 	public void notVaildDigitTest(){
-		assertEquals(false, ISBN.isVaildISBN("978047xxxxxx8"));
+		assertEquals(false, isbn.isVaildISBN("978047xxxxxx8"));
 	}
 }

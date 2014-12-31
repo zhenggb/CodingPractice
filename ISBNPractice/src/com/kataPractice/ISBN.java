@@ -1,19 +1,23 @@
 package com.kataPractice;
 
-
 public class ISBN {
-
-	public static boolean isVaildISBN(String isbn) {
+	String isbn;
+	
+	public void setISBN(String isbn) {
+		this.isbn = isbn;
+	}
+	
+	public boolean isVaildISBN() {
 		if (isbn.length() != 13)
 			return false;
 		try {
 			int summing = 0;
 			for (int i = 0; i < 12; i = i + 2) {
-				summing = summing + Integer.parseInt(isbn.substring(i, i + 1));
-				summing = summing + Integer.parseInt(isbn.substring(i + 1, i + 2)) * 3;
+				summing = summing + getDigitByPosition(i);
+				summing = summing + getDigitByPosition(i + 1) * 3;
 			}
 			int checkDigit = (10 - summing % 10) % 10;
-			if (checkDigit == Integer.parseInt(isbn.substring(12, 13)))
+			if (checkDigit == getDigitByPosition(12))
 				return true;
 		} catch (NumberFormatException e) {
 			return false;
@@ -21,5 +25,12 @@ public class ISBN {
 		return false;
 	}
 
-
+	private int getDigitByPosition(int position) {
+		return Integer.parseInt(isbn.substring(position, position + 1));
+	}
+	
+	public boolean isVaildISBN(String isbn){
+		setISBN(isbn);
+		return isVaildISBN();		
+	}
 }
