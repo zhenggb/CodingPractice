@@ -50,4 +50,9 @@ public class ISBNTest {
 	public void isVaildISBNWithSpaceTest() {
 		assertEquals(true, isbn.isVaildISBN("978 0 471 48648 0"));
 	}
+	
+	@Test
+	public void isVaildISBNWithHyphenTest() {
+		assertEquals(true, isbn.isVaildISBN("978-0-13-149505-0"));
+	}
 }
