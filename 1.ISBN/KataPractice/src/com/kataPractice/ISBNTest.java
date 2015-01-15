@@ -53,4 +53,9 @@ public class ISBNTest {
 	public void 测试kong返回false() {
 		assertEquals(false, ISBN.isISBN(""));
 	}
+	
+	@Test
+	public void 测试非法字符AB返回false() {
+		assertEquals(false, ISBN.isISBN("A123456789"));
+	}
 }
