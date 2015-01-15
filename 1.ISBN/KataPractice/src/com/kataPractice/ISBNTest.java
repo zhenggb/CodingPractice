@@ -59,5 +59,10 @@ public class ISBNTest {
 		assertEquals(false, ISBN.isISBN("A123456789"));
 	}
 	
+	@Test
+	public void ≤‚ ‘dayu13∑µªÿfalse() {
+		assertEquals(false, ISBN.isISBN("12345678901234"));
+	}
+	
 	
 }
