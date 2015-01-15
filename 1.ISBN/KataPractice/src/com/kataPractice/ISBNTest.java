@@ -7,8 +7,27 @@ import org.junit.Test;
 public class ISBNTest {
 
 	@Test
-	public void test() {
+	public void ≤‚ ‘9780470059029∑µªÿtrue() {
 		assertEquals(true, ISBN.isISBN("9780470059029"));
 	}
+	
+	@Test
+	public void ≤‚ ‘9780470059028∑µªÿfalse() {
+		assertEquals(false, ISBN.isISBN("9780470059028"));
+	}
 
+	@Test
+	public void ≤‚ ‘9_780470059029∑µªÿfalse() {
+		assertEquals(true, ISBN.isISBN("9-780470059029"));
+	}
+	
+	@Test
+	public void ≤‚ ‘9_780470059028∑µªÿfalse() {
+		assertEquals(false, ISBN.isISBN("9-780470059028"));
+	}
+	
+	@Test
+	public void ≤‚ ‘0∑µªÿfalse() {
+		assertEquals(false, ISBN.isISBN("0"));
+	}
 }
