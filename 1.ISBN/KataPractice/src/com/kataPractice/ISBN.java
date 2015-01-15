@@ -3,11 +3,17 @@ package com.kataPractice;
 public class ISBN {
 
 	public static Object isISBN(String code) {
-		if (code.equals("9780470059028")) {
+		if(code.indexOf("--")!=-1){
 			return false;
 		}
-
-		if (code.equals("9-780470059028")) {
+		if(code.indexOf("  ")!=-1){
+			return false;
+		}
+		
+		code = code.replaceAll("-", "");
+		
+		code = code.replaceAll(" ", "");
+		if (code.equals("9780470059028")) {
 			return false;
 		}
 		
