@@ -58,4 +58,6 @@ public class ISBNTest {
 	public void ²âÊÔ·Ç·¨×Ö·ûAB·µ»Øfalse() {
 		assertEquals(false, ISBN.isISBN("A123456789"));
 	}
+	
+	
 }

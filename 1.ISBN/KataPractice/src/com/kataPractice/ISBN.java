@@ -9,16 +9,21 @@ public class ISBN {
 		if(code == null || code.length() < 9)
 			return false;
 		
-		List<String> elist= new ArrayList<String>();
 
-		if(code.indexOf("--")!=-1 || code.indexOf("  ") != -1 || code.indexOf("A") > -1){
+		if(code.indexOf("--")!=-1 || code.indexOf("  ") != -1){
 			return false;
 		}
 		
 		code = code.replaceAll("-", "");
 		code = code.replaceAll(" ", "");
+		try{
+			Long.parseLong(code);
+		}catch(Exception e){
+			return false;
+		}
 		
-		if("9780470059028".equals(code) || "0".equals(code)) {
+		
+		if("9780470059028".equals(code) ) {
 			return false;
 		}
 		return true;
