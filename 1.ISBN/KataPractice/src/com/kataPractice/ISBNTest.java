@@ -39,4 +39,18 @@ public class ISBNTest {
 	public void ≤‚ ‘978NN0596809485∑µªÿfalse() {
 		assertEquals(false, ISBN.isISBN("978  0596809485"));
 	}
+	
+	@Test
+	public void ≤‚ ‘null∑µªÿfalse() {
+		assertEquals(false, ISBN.isISBN(null));
+	}
+	@Test
+	public void ≤‚ ‘diyigeweizifu∑µªÿfalse() {
+		assertEquals(false, ISBN.isISBN("-9780470059028"));
+	}
+	
+	@Test
+	public void ≤‚ ‘kong∑µªÿfalse() {
+		assertEquals(false, ISBN.isISBN(""));
+	}
 }
