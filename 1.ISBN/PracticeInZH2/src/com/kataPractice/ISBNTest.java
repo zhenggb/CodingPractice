@@ -43,6 +43,9 @@ public class ISBNTest {
 		assertEquals(false, ISBN.verify("978047005902934"));
 	}
 	
-	
+	@Test
+	public void 验证包含字母是失败的(){
+		assertEquals(false, ISBN.verify("97804700590A9"));
+	}
 
 }

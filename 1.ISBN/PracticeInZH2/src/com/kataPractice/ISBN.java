@@ -1,9 +1,12 @@
 package com.kataPractice;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class ISBN {
 
 	public static boolean verify(String isbnCode) {
-		if (checkSpaceAndReq(isbnCode)||checkdoubleMark(isbnCode,"  ")||checkdoubleMark(isbnCode,"--")) {
+		if (checkCharacter(isbnCode)||checkSpaceAndReq(isbnCode)||checkdoubleMark(isbnCode,"  ")||checkdoubleMark(isbnCode,"--")) {
 			return false;
 		}
 		
@@ -30,6 +33,13 @@ public class ISBN {
 		else
 			return false;
 		
+	}
+
+	private static boolean checkCharacter(String isbnCode) {
+		// TODO Auto-generated method stub
+		Pattern p = Pattern.compile("[a-zA-Z]+");
+		Matcher  m = p.matcher(isbnCode);
+		return m.find();
 	}
 
 	private static boolean checkSpaceAndReq(String isbnCode) {
