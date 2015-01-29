@@ -33,19 +33,14 @@ public class ISBN {
 			int sum = 0;
 			int checkBit = 0;
 			for(int i= 0;i<9;i++){
-				sum = sum + i*getOneNumber(isbnCode, i);
+				sum = sum + (i+1)*getOneNumber(isbnCode, i);
 			}
 			checkBit = sum%11;
 			if (checkBit==10){
-				if (getOneNumber(isbnCode, 9)=='X'){
-					return true;
-				}
+				return getOneNumber(isbnCode, 9)=='X';
 			}else{
-				if (checkBit==getOneNumber(isbnCode, 9)){
-					return true;
-				}
+				return checkBit==getOneNumber(isbnCode, 9);
 			}
-			return true;
 		}
 		
 		return false;

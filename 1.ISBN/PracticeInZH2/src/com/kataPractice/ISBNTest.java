@@ -52,5 +52,10 @@ public class ISBNTest {
 	public void 验证10位是成功的(){
 		assertEquals(true, ISBN.verify("0471958697"));
 	}
+	
+	@Test
+	public void 验证10位是失败的(){
+		assertEquals(false, ISBN.verify("0471958693"));
+	}
 
 }
