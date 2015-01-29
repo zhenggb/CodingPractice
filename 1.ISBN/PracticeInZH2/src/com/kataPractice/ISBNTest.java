@@ -29,6 +29,14 @@ public class ISBNTest {
 	public void 验证带空格横线的是失败(){
 		assertEquals(false, ISBN.verify("978-0 47-00 59-029"));
 	}
+	@Test
+	public void 验证带两个横线的是失败(){
+		assertEquals(false, ISBN.verify("978--047-0059-029"));
+	}
+	@Test
+	public void 验证带两个空格的是失败(){
+		assertEquals(false, ISBN.verify("978  047 0059 029"));
+	}
 	
 	@Test
 	public void 验证超过13位是失败的(){

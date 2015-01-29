@@ -3,9 +3,10 @@ package com.kataPractice;
 public class ISBN {
 
 	public static boolean verify(String isbnCode) {
-		if (checkSpaceAndReq(isbnCode)) {
+		if (checkSpaceAndReq(isbnCode)||checkdoubleMark(isbnCode,"  ")||checkdoubleMark(isbnCode,"--")) {
 			return false;
 		}
+		
 		isbnCode = isbnCode.replaceAll(" ", "");
 		
 		isbnCode = isbnCode.replaceAll("-", "");
@@ -33,6 +34,9 @@ public class ISBN {
 
 	private static boolean checkSpaceAndReq(String isbnCode) {
 		return isbnCode.contains(" ") && isbnCode.contains("-");
+	}
+	private static boolean checkdoubleMark(String isbnCode,String mark) {
+		return isbnCode.contains(mark);
 	}
 
 	private static int getOneNumber(String isbnCode, int i) {
