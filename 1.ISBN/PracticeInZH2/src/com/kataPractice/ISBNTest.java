@@ -47,5 +47,10 @@ public class ISBNTest {
 	public void 验证包含字母是失败的(){
 		assertEquals(false, ISBN.verify("97804700590A9"));
 	}
+	
+	@Test
+	public void 验证10位是成功的(){
+		assertEquals(true, ISBN.verify("0471958697"));
+	}
 
 }

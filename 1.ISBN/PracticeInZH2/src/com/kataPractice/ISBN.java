@@ -14,25 +14,41 @@ public class ISBN {
 		
 		isbnCode = isbnCode.replaceAll("-", "");
 		
-		if (isbnCode.length() != 13) {
-			return false;
-		}
-		
-		int sum = 0;
-		int checkBit = 0;
-		for(int i=0;i<11;i=i+2){
-			int oddNum = getOneNumber(isbnCode, i);
-			int evenNum = getOneNumber(isbnCode, i+1);
-			
-			sum += oddNum*1+ evenNum*3;
-		}
+		if (isbnCode.length() == 13) {
+			int sum = 0;
+			int checkBit = 0;
+			for (int i = 0; i < 11; i = i + 2) {
+				int oddNum = getOneNumber(isbnCode, i);
+				int evenNum = getOneNumber(isbnCode, i + 1);
 
-		checkBit = (10-sum%10)%10;
-		if(checkBit==getOneNumber(isbnCode, 12))
+				sum += oddNum * 1 + evenNum * 3;
+			}
+
+			checkBit = (10 - sum % 10) % 10;
+			if (checkBit == getOneNumber(isbnCode, 12))
+				return true;
+			else
+				return false;
+		}else if (isbnCode.length() == 10){
+			int sum = 0;
+			int checkBit = 0;
+			for(int i= 0;i<9;i++){
+				sum = sum + i*getOneNumber(isbnCode, i);
+			}
+			checkBit = sum%11;
+			if (checkBit==10){
+				if (getOneNumber(isbnCode, 9)=='X'){
+					return true;
+				}
+			}else{
+				if (checkBit==getOneNumber(isbnCode, 9)){
+					return true;
+				}
+			}
 			return true;
-		else
-			return false;
+		}
 		
+		return false;
 	}
 
 	private static boolean checkCharacter(String isbnCode) {
