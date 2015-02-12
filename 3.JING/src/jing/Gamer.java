@@ -57,14 +57,21 @@ public class Gamer {
 				&& game[i][2].equals(flag))
 			return true;
 		else
-			return false;
+			return false;//∫·”Æ
 	}
 	private static boolean checkSu(String[][] game,int i,String flag){
 		if (game[0][i].equals(flag) && game[1][i].equals(flag)
 				&& game[2][i].equals(flag))
 			return true;
 		else
-			return false;
+			return false;// ˙”Æ
 	}
-
+	private static boolean checkXie(String[][] game,String flag){
+		if ((game[0][0].equals("X") && game[1][1].equals("X")
+				&& game[2][2].equals("X")) || (game[0][2].equals("X") && game[1][1].equals("X")
+					&& game[2][0].equals("X")))
+			return true;
+		else
+			return false;// ˙”Æ
+	}
 }

@@ -24,7 +24,15 @@ public class TestJing {
 		};
 		Assert.assertSame("X", Gamer.getResult(game));
 	}
-
+	@Test
+	public void testбӮ(){
+		String[][] game = new String[][]{
+				{"X","O","_"},
+				{"O","X","O"},
+				{"X","_","X"},
+		};
+		Assert.assertSame("X", Gamer.getResult(game));
+	}
 	
 	@Test
 	public void testError(){
