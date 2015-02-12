@@ -3,18 +3,16 @@ package jing;
 public class Gamer {
 
 	public static Object getResult(String[][] game) {
-		if (game[0][0].equals("X") && game[0][1].equals("X")
-				&& game[0][2].equals("X")) {
+//		if (game[0][0].equals("X") && game[0][1].equals("X")
+//				&& game[0][2].equals("X")) {
+//			return "X";
+//		}
+		if(checkHeng(game,0,"X"))
 			return "X";
-		}
-		if (game[1][0].equals("O") && game[1][1].equals("O")
-				&& game[1][2].equals("O")) {
-			return "O";
-		}
-		if (game[0][0].equals("X") && game[1][0].equals("X")
-				&& game[2][0].equals("X")) {
+		if(checkHeng(game,1,"X"))
 			return "X";
-		}
+		if(checkSu(game,0,"X"))
+			return "X";
 
 		int Xsum = 0;
 		int Osum = 0;
@@ -53,6 +51,20 @@ public class Gamer {
 			}
 		}
 		return "Error";
+	}
+	private static boolean checkHeng(String[][] game,int i,String flag){
+		if (game[i][0].equals(flag) && game[i][1].equals(flag)
+				&& game[i][2].equals(flag))
+			return true;
+		else
+			return false;
+	}
+	private static boolean checkSu(String[][] game,int i,String flag){
+		if (game[0][i].equals(flag) && game[1][i].equals(flag)
+				&& game[2][i].equals(flag))
+			return true;
+		else
+			return false;
 	}
 
 }
