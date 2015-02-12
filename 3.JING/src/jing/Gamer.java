@@ -4,6 +4,10 @@ public class Gamer {
 
 	public static Object getResult(String[][] game) {
 		try{
+			if(!stepCheck(game)){
+				return "Error";
+			}
+			
 			for(int i=0; i < 3; i++) {
 				if(checkHeng(game,i,"X")){
 					return "X";
@@ -41,5 +45,26 @@ public class Gamer {
 			return true;
 		else
 			return false;//бӮ
+	}
+	
+	private static boolean stepCheck(String[][] game) {
+		int Xcount =0,OCount=0;
+		for(int i=0;i<3;i++){
+			for(int j=0;j<3;j++){
+				if(game[i][j].equals("X")){
+					Xcount++;
+				}
+				else if(game[i][j].equals("O")){
+					OCount++;
+					
+				}
+			}
+		}
+		int num=Xcount-OCount;
+		if(num<=1&&num>=-1){
+			return true;
+		}
+		return false;
+		
 	}
 }
