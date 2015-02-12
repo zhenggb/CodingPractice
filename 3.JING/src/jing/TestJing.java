@@ -44,4 +44,13 @@ public class TestJing {
 		Assert.assertSame("Error", Gamer.getResult(game));
 	}
 
+	@Test
+	public void testErrorChar(){
+		String[][] game = new String[][]{
+				{"X","A","O"},
+				{"O","X","X"},
+				{"_","_","_"},
+		};
+		Assert.assertSame("Error", Gamer.getResult(game));
+	}
 }
