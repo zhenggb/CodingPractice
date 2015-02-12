@@ -102,4 +102,13 @@ public class TestJing {
 		};
 		Assert.assertSame("-", Gamer.getResult(game));
 	}
+	@Test
+	public void test˫Ӯ(){
+		String[][] game = new String[][]{
+				{"X","X","X"},
+				{"O","O","O"},
+				{"O","X","O"},
+		};
+		Assert.assertSame("Error", Gamer.getResult(game));
+	}
 }
