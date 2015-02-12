@@ -13,22 +13,25 @@ public class Gamer {
 			return "X";
 		if(checkSu(game,0,"X"))
 			return "X";
-
+		if(checkXie(game,"X"))
+			return "X";
+		if(checkXie(game,"O"))
+			return "O";
 		int Xsum = 0;
 		int Osum = 0;
 
 		for (int i = 0; i < 3; i++) {
 			int xCount = 0;
-			int ocount = 0;
+			int oCount = 0;
 			for (int j = 0; j < 3; j++) {
-				String tmp = game[i][j];
-				if ("X".equals(tmp)) {
+				String character = game[i][j];
+				if ("X".equals(character)) {
 					xCount += 1;
 					Xsum++;
 				}
 
-				if ("O".equals(tmp)) {
-					ocount += 1;
+				if ("O".equals(character)) {
+					oCount += 1;
 					Osum++;
 				}
 			}
@@ -40,7 +43,7 @@ public class Gamer {
 				return "X";
 			}
 
-			if (ocount == 3) {
+			if (oCount == 3) {
 				if (xCount == 3) {
 					if (Xsum - Osum == 0 || Xsum - Osum == -1
 							|| Xsum - Osum == 1) {
@@ -67,11 +70,11 @@ public class Gamer {
 			return false;//ÊúÓ®
 	}
 	private static boolean checkXie(String[][] game,String flag){
-		if ((game[0][0].equals("X") && game[1][1].equals("X")
-				&& game[2][2].equals("X")) || (game[0][2].equals("X") && game[1][1].equals("X")
-					&& game[2][0].equals("X")))
+		if ((game[0][0].equals(flag) && game[1][1].equals(flag)
+				&& game[2][2].equals(flag)) || (game[0][2].equals(flag) && game[1][1].equals(flag)
+					&& game[2][0].equals(flag)))
 			return true;
 		else
-			return false;//ÊúÓ®
+			return false;//Ð±Ó®
 	}
 }
