@@ -93,5 +93,13 @@ public class TestJing {
 		};
 		Assert.assertSame("X", Gamer.getResult(game));
 	}
-
+	@Test
+	public void testXwin∆Ωæ÷(){
+		String[][] game = new String[][]{
+				{"X","O","X"},
+				{"O","X","X"},
+				{"O","X","O"},
+		};
+		Assert.assertSame("-", Gamer.getResult(game));
+	}
 }

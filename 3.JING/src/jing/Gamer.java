@@ -19,10 +19,31 @@ public class Gamer {
 				return "X";
 			if(checkXie(game,"O"))
 				return "O";
+			if(checkPing(game,"O"))
+				return "-";
 		}catch(Exception e){
 			return "Error";
 		}
 		return "Error";
+	}
+	private static boolean checkPing(String[][] game, String string) {
+		// TODO Auto-generated method stub
+		String[] xoString={
+				game[0][1]+game[0][2]+game[0][0],
+				game[1][1]+game[1][2]+game[1][0],
+				game[2][1]+game[2][2]+game[2][0],
+				game[2][0]+game[1][0]+game[0][0],
+				game[2][1]+game[1][1]+game[0][1],
+				game[2][2]+game[1][2]+game[0][2],
+				game[0][0]+game[1][1]+game[2][2],
+				game[0][2]+game[1][1]+game[2][0],
+				};
+		for (int i=0;i<8;i++)
+		{
+			if(xoString[i].equals("XXX")||xoString[i].equals("OOO"))
+				return false;
+		}
+		return true;
 	}
 	private static boolean checkHeng(String[][] game,int i,String flag){
 		if (game[i][0].equals(flag) && game[i][1].equals(flag)
