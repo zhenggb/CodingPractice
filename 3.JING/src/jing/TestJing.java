@@ -28,9 +28,18 @@ public class TestJing {
 	public void testError(){
 		String[][] game = new String[][]{
 				{"X","X","O"},
-				{"O","O","O"},
+				{"O","X","X"},
 				{"_","_","_"},
 		};
 		Assert.assertSame("Error", Gamer.getResult(game));
+	}
+	@Test
+	public void testpingju(){
+		String[][] game = new String[][]{
+				{"X","O","X"},
+				{"O","X","X"},
+				{"O","X","O"},
+		};
+		Assert.assertSame("-", Gamer.getResult(game));
 	}
 }
