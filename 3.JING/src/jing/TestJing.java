@@ -7,7 +7,7 @@ import org.junit.Test;
 public class TestJing {
 	
 	@Test
-	public void testX(){
+	public void test∫·”Æ(){
 		String[][] game = new String[][]{
 				{"X","X","X"},
 				{"O","O","_"},
@@ -16,14 +16,16 @@ public class TestJing {
 		Assert.assertSame("X", Gamer.getResult(game));
 	}
 	@Test
-	public void testO(){
+	public void test ˙”Æ(){
 		String[][] game = new String[][]{
-				{"X","X","_"},
-				{"O","O","O"},
-				{"_","_","_"},
+				{"X","O","_"},
+				{"X","O","O"},
+				{"X","_","_"},
 		};
-		Assert.assertSame("O", Gamer.getResult(game));
+		Assert.assertSame("X", Gamer.getResult(game));
 	}
+
+	
 	@Test
 	public void testError(){
 		String[][] game = new String[][]{
@@ -33,13 +35,5 @@ public class TestJing {
 		};
 		Assert.assertSame("Error", Gamer.getResult(game));
 	}
-	@Test
-	public void testpingju(){
-		String[][] game = new String[][]{
-				{"X","O","X"},
-				{"O","X","X"},
-				{"O","X","O"},
-		};
-		Assert.assertSame("-", Gamer.getResult(game));
-	}
+
 }
