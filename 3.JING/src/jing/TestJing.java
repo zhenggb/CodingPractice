@@ -45,7 +45,7 @@ public class TestJing {
 	}
 
 	@Test
-	public void testErrorChar(){
+	public void testErrorA(){
 		String[][] game = new String[][]{
 				{"X","A","O"},
 				{"O","X","X"},
@@ -53,4 +53,45 @@ public class TestJing {
 		};
 		Assert.assertSame("Error", Gamer.getResult(game));
 	}
+	
+	@Test
+	public void testError1(){
+		String[][] game = new String[][]{
+				{"O","O","O"},
+				{"_","X","X"},
+				{"O","O","O"},
+		};
+		Assert.assertSame("Error", Gamer.getResult(game));
+	}
+	
+	@Test
+	public void testOwin一横一竖(){
+		String[][] game = new String[][]{
+				{"X","X","O"},
+				{"X","X","O"},
+				{"O","O","O"},
+		};
+		Assert.assertSame("O", Gamer.getResult(game));
+	}
+	
+	@Test
+	public void testOwin一横一斜(){
+		String[][] game = new String[][]{
+				{"O","X","X"},
+				{"X","O","X"},
+				{"O","O","O"},
+		};
+		Assert.assertSame("O", Gamer.getResult(game));
+	}
+	
+	@Test
+	public void testXwin一横一斜(){
+		String[][] game = new String[][]{
+				{"X","X","X"},
+				{"O","X","O"},
+				{"X","O","O"},
+		};
+		Assert.assertSame("X", Gamer.getResult(game));
+	}
+
 }
