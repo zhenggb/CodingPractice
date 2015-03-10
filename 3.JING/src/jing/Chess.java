@@ -3,19 +3,15 @@ package jing;
 public class Chess {
 
 	public String check(String[][] chessboard) {
-		int XCount=0;
-		int OCount=0;
-		for(int i=0;i<=chessboard.length;i++){
-			for(int j=0;j<i;j++)
-			{
-				if(chessboard[i][j]==chessboard[i+1][j]&&chessboard[i][j]==chessboard[i+2][j]){
-					return "X";
-				}
-			}
+		if (chessboard[0][0] == "X" && chessboard[0][1] == "X"
+				&& chessboard[0][2] == "X") {
+			return "X";
 		}
-		   
-		 
-	return "X";
+		if (chessboard[1][0] == "X" && chessboard[1][1] == "X"
+				&& chessboard[1][2] == "X") {
+			return "X";
+		}
+		return "-";
 	}
 
 }
