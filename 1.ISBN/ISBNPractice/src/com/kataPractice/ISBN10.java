@@ -5,11 +5,14 @@ public class ISBN10 extends ISBN {
 		this.isbn = isbn;
 	}
 
-	protected int getCheckDigit() {
+	protected String getCheckDigit() {
 		int summing = 0;
 		for (int i = 0; i < 9; i = i + 1) {
 			summing = summing + (i + 1) * getDigitByPosition(i);
 		}
-		return summing % 11;
+		String checkDigit = String.valueOf(summing % 11);
+		if (checkDigit.equals("10"))
+			checkDigit = "X";
+		return checkDigit;
 	}
 }

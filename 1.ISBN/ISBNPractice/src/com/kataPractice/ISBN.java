@@ -17,7 +17,7 @@ public class ISBN {
 	
 	protected boolean isVaildISBN() {
 		try {
-			if (getCheckDigit() == getDigitByPosition(isbn.length() - 1))
+			if (getCheckDigit().equals(isbn.substring(isbn.length() - 1, isbn.length())))
 				return true;
 		} catch (NumberFormatException e) {
 			return false;
@@ -25,8 +25,8 @@ public class ISBN {
 		return false;
 	}
 
-	protected int getCheckDigit(){
-		return -1;
+	protected String getCheckDigit(){
+		return "-1";
 	}
 
 	protected int getDigitByPosition(int position) {
