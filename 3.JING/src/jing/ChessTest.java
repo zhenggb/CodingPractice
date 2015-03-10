@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class ChessTest {
 	@Test
-	public void testHeng1() {
+	public void testHengX1() {
 		String[][] chessboard = new String[][] {
 				{ "X", "X", "X" },
 				{ "_", "O", "_" }, 
@@ -32,5 +32,15 @@ public class ChessTest {
 				{ "X", "_", "_" } };
 
 		Assert.assertSame("X", new Chess().check(chessboard));
+	}
+	
+	@Test
+	public void testHengO_1() {
+		String[][] chessboard = new String[][] {
+				{ "O", "O", "O" },
+				{ "_", "X", "_" }, 
+				{ "X", "_", "_" } };
+
+		Assert.assertSame("O", new Chess().check(chessboard));
 	}
 }
