@@ -49,10 +49,6 @@ public class Chess {
 				&& chessboard[2][2] == chessboard[1][1];
 	}
 
-	private boolean isShuWin(String[][] chessboard, int i) {
-		return chessboard[0][i] == chessboard[1][i]
-				&& chessboard[1][i] == chessboard[2][i];
-	}
 
 	private void countHengWin() {
 		for (int i = 0; i < 3; i++) {
