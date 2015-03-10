@@ -43,4 +43,14 @@ public class ChessTest {
 
 		Assert.assertSame("O", new Chess().check(chessboard));
 	}
+	
+	@Test
+	public void testXie_1() {
+		String[][] chessboard = new String[][] {
+				{ "O", "X", "X" },
+				{ "_", "O", "_" }, 
+				{ "X", "_", "O" } };
+
+		Assert.assertSame("O", new Chess().check(chessboard));
+	}
 }

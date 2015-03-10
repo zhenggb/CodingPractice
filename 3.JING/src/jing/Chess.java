@@ -4,27 +4,17 @@ public class Chess {
 
 	public String check(String[][] chessboard) {
 
-		String player = "X";
 		for (int i = 0; i < 3; i++) {
-			if (chessboard[i][0] == player && chessboard[i][1] == player
-					&& chessboard[i][2] == player) {
-				return player;
+			if (chessboard[i][0] == chessboard[i][1] && chessboard[i][1] == chessboard[i][2]) {
+				return chessboard[i][0];
 			}
+			if (chessboard[0][i] == chessboard[1][i] && chessboard[1][i] == chessboard[2][i]) {
+				return chessboard[0][i];
+			}
+			
 		}
-		
-		String player2 = "O";
-		for (int i = 0; i < 3; i++) {
-			if (chessboard[i][0] == player2 && chessboard[i][1] == player2
-					&& chessboard[i][2] == player2) {
-				return player2;
-			}
-		}
-		
-		for (int j = 0; j < 3; j++) {
-			if (chessboard[0][j] == player && chessboard[1][j] == player
-					&& chessboard[2][j] == player) {
-				return player;
-			}
+		if (chessboard[0][0] == chessboard[1][1] && chessboard[2][2] == chessboard[1][1]) {
+			return chessboard[0][0];
 		}
 		return "-";
 	}
