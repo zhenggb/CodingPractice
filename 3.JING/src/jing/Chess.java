@@ -6,19 +6,16 @@ public class Chess {
 		int XCount=0;
 		int OCount=0;
 		for(int i=0;i<=chessboard.length;i++){
-			
-		  if(chessboard[0][i]==chessboard[1][i]&&chessboard[0][i]==chessboard[2][i]){
-		    if(chessboard[0][i]=="X"){
-		    	XCount++;
-		    }
-		    if(chessboard[0][i]=="O"){
-		    	OCount++;
-		    }
-		  }
+			for(int j=0;j<i;j++)
+			{
+				if(chessboard[i][j]==chessboard[i+1][j]&&chessboard[i][j]==chessboard[i+2][j]){
+					return "X";
+				}
+			}
 		}
-		
+		   
 		 
-		return "X";
+	return "X";
 	}
 
 }
