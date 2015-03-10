@@ -60,4 +60,9 @@ public class ISBNTest {
 	public void isVaildISBN10Test() {
 		assertEquals(true, isbn.isVaildISBN("0471958697"));
 	}
+	
+	@Test
+	public void isVaildISBN10WithCheckDigitIsXTest() {
+		assertEquals(true, isbn.isVaildISBN("347195869X"));
+	}
 }
