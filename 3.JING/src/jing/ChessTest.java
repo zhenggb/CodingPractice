@@ -53,4 +53,14 @@ public class ChessTest {
 
 		Assert.assertSame("O", new Chess().check(chessboard));
 	}
+	
+	@Test
+	public void testXie_reverse() {
+		String[][] chessboard = new String[][] {
+				{ "X", "X", "O" },
+				{ "_", "O", "_" }, 
+				{ "O", "_", "_" } };
+
+		Assert.assertSame("O", new Chess().check(chessboard));
+	}
 }
