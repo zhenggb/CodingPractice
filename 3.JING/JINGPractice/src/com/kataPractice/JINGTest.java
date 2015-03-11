@@ -23,4 +23,14 @@ public class JINGTest {
 		};
 		assertEquals("O",new JING().check(chessBoard));
 	}
+	
+	@Test
+	public void secondHengOWinTest(){
+		String[][] chessBoard ={
+				{"X", "X", "_"},
+				{"O", "O", "O"},
+				{"_", "X", "_"}
+		};
+		assertEquals("O",new JING().check(chessBoard));
+	}
 }
