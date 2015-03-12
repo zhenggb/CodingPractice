@@ -19,7 +19,8 @@ public class JING {
 	}
 
 	private boolean check(String[][] chessBoard, int hengStep, int shuStep) {
-		int winCount = 0;
+		int xWinCount = 0;
+		int oWinCount = 0;
 		for (int startI = 0; startI < 3; startI++) {
 			for (int startJ = 0; startJ < 3; startJ++) {
 				int xCount = 0;
@@ -30,11 +31,15 @@ public class JING {
 					if (chessBoard[i][j].equals("O"))
 						oCount++;
 				}
-				if (xCount == 3 || oCount == 3)
-					winCount++;
+				if (xCount == 3)
+					xWinCount++;
+				if (oCount == 3)
+					oWinCount++;
 			}
 		}
-		if (winCount == 1)
+		if (xWinCount == 1 && oWinCount == 0)
+			return true;
+		if (xWinCount == 0 && oWinCount == 1)
 			return true;
 		return false;
 	}
