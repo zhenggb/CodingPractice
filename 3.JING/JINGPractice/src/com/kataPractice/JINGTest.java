@@ -73,4 +73,14 @@ public class JINGTest {
 		};
 		assertEquals("X",new JING().check(chessBoard));
 	}
+	
+	@Test
+	public void tieTest(){
+		String[][] chessBoard ={
+				{"X", "_", "_"},
+				{"_", "X", "_"},
+				{"_", "_", "O"}
+		};
+		assertEquals("-",new JING().check(chessBoard));
+	}
 }
