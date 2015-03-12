@@ -83,4 +83,14 @@ public class JINGTest {
 		};
 		assertEquals("-",new JING().check(chessBoard));
 	}
+	
+	@Test
+	public void bothWinTest(){
+		String[][] chessBoard ={
+				{"X", "_", "O"},
+				{"X", "X", "O"},
+				{"X", "_", "O"}
+		};
+		assertEquals("error",new JING().check(chessBoard));
+	}
 }
