@@ -12,30 +12,34 @@ public class JING {
 				return chessBoard[0][i];
 			}
 		}
-		if (checkXie(chessBoard)||checkXieReverse(chessBoard)) {
+		if (check(chessBoard, 1, 1) || check(chessBoard, -1, 1)) {
 			return chessBoard[1][1];
 		}
 		return "-";
 	}
 
-	private boolean checkXie(String[][] chessBoard) {
-		int xCount = 0;
-		int oCount = 0;
-		int hengStep = 1;
-		int shuStep = 1;
-		for (int i = 0, j = 0; i < 3; i = i + hengStep, j = j + shuStep) {
-			if (chessBoard[i][j].equals("X"))
-				xCount++;
-			if (chessBoard[i][j].equals("O"))
-				oCount++;
+	private boolean check(String[][] chessBoard, int hengStep, int shuStep) {
+		int winCount = 0;
+		for (int startI = 0; startI < 3; startI++) {
+			for (int startJ = 0; startJ < 3; startJ++) {
+				int xCount = 0;
+				int oCount = 0;
+				for (int i = startI, j = startJ; isValidCell(i, j); i = i + hengStep, j = j + shuStep) {
+					if (chessBoard[i][j].equals("X"))
+						xCount++;
+					if (chessBoard[i][j].equals("O"))
+						oCount++;
+				}
+				if (xCount == 3 || oCount == 3)
+					winCount++;
+			}
 		}
-		if (xCount == 3 || oCount == 3)
+		if (winCount == 1)
 			return true;
 		return false;
 	}
-	
-	private boolean checkXieReverse(String[][] chessBoard) {
-		return chessBoard[0][2] == chessBoard[1][1]
-				&& chessBoard[1][1] == chessBoard[2][0];
+
+	private boolean isValidCell(int i, int j) {
+		return i >= 0 && i < 3 && j >= 0 && j < 3;
 	}
 }
