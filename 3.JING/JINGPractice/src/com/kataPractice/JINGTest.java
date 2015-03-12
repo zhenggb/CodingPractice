@@ -93,4 +93,14 @@ public class JINGTest {
 		};
 		assertEquals("error",new JING().check(chessBoard));
 	}
+	
+	@Test
+	public void emptyTest(){
+		String[][] chessBoard ={
+				{"_", "_", "_"},
+				{"_", "_", "_"},
+				{"_", "_", "_"}
+		};
+		assertEquals("-",new JING().check(chessBoard));
+	}
 }
