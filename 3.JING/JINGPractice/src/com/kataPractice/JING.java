@@ -1,19 +1,28 @@
 package com.kataPractice;
 
 public class JING {
-	String winner = "-";
+	String winner = "error";
+	int xWinCount = 0;
+	int oWinCount = 0;
 
 	public String check(String[][] chessBoard) {
 		check(chessBoard, 0, 1);
 		check(chessBoard, 1, 0);
 		check(chessBoard, 1, 1);
 		check(chessBoard, -1, 1);
+		if (xWinCount == 1 && oWinCount == 0) {
+			setWinner("X");
+		}
+		if (xWinCount == 0 && oWinCount == 1) {
+			setWinner("O");
+		}
+		if (xWinCount == 0 && oWinCount == 0) {
+			setWinner("-");
+		}
 		return getWinner();
 	}
 
 	private void check(String[][] chessBoard, int hengStep, int shuStep) {
-		int xWinCount = 0;
-		int oWinCount = 0;
 		for (int startI = 0; startI < 3; startI++) {
 			for (int startJ = 0; startJ < 3; startJ++) {
 				int xCount = 0;
@@ -27,12 +36,6 @@ public class JING {
 				if (xCount == 3) xWinCount++;
 				if (oCount == 3) oWinCount++;
 			}
-		}
-		if (xWinCount == 1 && oWinCount == 0) {
-			setWinner("X");
-		}
-		if (xWinCount == 0 && oWinCount == 1) {
-			setWinner("O");
 		}
 	}
 
