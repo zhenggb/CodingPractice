@@ -1,7 +1,6 @@
 package com.kataPractice;
 
 public class JING {
-	String winner = "error";
 	int xWinCount = 0;
 	int oWinCount = 0;
 
@@ -15,15 +14,15 @@ public class JING {
 		oWinCount = oWinCount + check(chessBoard, "O", 1, 1);
 		oWinCount = oWinCount + check(chessBoard, "O", -1, 1);
 		if (xWinCount == 1 && oWinCount == 0) {
-			setWinner("X");
+			return "X";
 		}
 		if (xWinCount == 0 && oWinCount == 1) {
-			setWinner("O");
+			return "O";
 		}
 		if (xWinCount == 0 && oWinCount == 0) {
-			setWinner("-");
+			return "-";
 		}
-		return getWinner();
+		return "error";
 	}
 
 	private int check(String[][] chessBoard, String chess, int hengStep, int shuStep) {
@@ -42,13 +41,5 @@ public class JING {
 
 	private boolean isValidCell(int i, int j) {
 		return i >= 0 && i < 3 && j >= 0 && j < 3;
-	}
-	
-	private String getWinner() {
-		return winner;
-	}
-
-	private void setWinner(String winner) {
-		this.winner = winner;
 	}
 }
