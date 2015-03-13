@@ -10,16 +10,7 @@ public class JING {
 		}
 		int xWinCount = checkOneChess(chessBoard, "X");
 		int oWinCount = checkOneChess(chessBoard, "O");
-		if (xWinCount == 1 && oWinCount == 0) {
-			return "X";
-		}
-		if (xWinCount == 0 && oWinCount == 1) {
-			return "O";
-		}
-		if (xWinCount == 0 && oWinCount == 0) {
-			return "-";
-		}
-		return "error";
+		return judgeWinner(xWinCount, oWinCount);
 	}
 
 	private boolean judgeValidChessBoard(String[][] chessBoard, List<String> validChess) {
@@ -58,5 +49,18 @@ public class JING {
 
 	private boolean isValidCell(int i, int j) {
 		return i >= 0 && i < 3 && j >= 0 && j < 3;
+	}
+	
+	private String judgeWinner(int xWinCount, int oWinCount) {
+		if (xWinCount == 1 && oWinCount == 0) {
+			return "X";
+		}
+		if (xWinCount == 0 && oWinCount == 1) {
+			return "O";
+		}
+		if (xWinCount == 0 && oWinCount == 0) {
+			return "-";
+		}
+		return "error";
 	}
 }
