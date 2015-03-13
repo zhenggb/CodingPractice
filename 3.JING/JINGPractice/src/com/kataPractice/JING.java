@@ -1,7 +1,13 @@
 package com.kataPractice;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class JING {
 	public String check(String[][] chessBoard) {
+		if (!judgeValidChessBoard(chessBoard, Arrays.asList("X", "O", "_"))){
+			return "error";
+		}
 		int xWinCount = checkOneChess(chessBoard, "X");
 		int oWinCount = checkOneChess(chessBoard, "O");
 		if (xWinCount == 1 && oWinCount == 0) {
@@ -14,6 +20,17 @@ public class JING {
 			return "-";
 		}
 		return "error";
+	}
+
+	private boolean judgeValidChessBoard(String[][] chessBoard, List<String> validChess) {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (!validChess.contains(chessBoard[i][j])) {
+					return false;
+				}
+			}
+		}
+		return true;
 	}
 
 	private int checkOneChess(String[][] chessBoard, String chess) {
