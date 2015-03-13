@@ -1,18 +1,9 @@
 package com.kataPractice;
 
 public class JING {
-	int xWinCount = 0;
-	int oWinCount = 0;
-
 	public String check(String[][] chessBoard) {
-		xWinCount = xWinCount + check(chessBoard, "X", 0, 1);
-		xWinCount = xWinCount + check(chessBoard, "X", 1, 0);
-		xWinCount = xWinCount + check(chessBoard, "X", 1, 1);
-		xWinCount = xWinCount + check(chessBoard, "X", -1, 1);
-		oWinCount = oWinCount + check(chessBoard, "O", 0, 1);
-		oWinCount = oWinCount + check(chessBoard, "O", 1, 0);
-		oWinCount = oWinCount + check(chessBoard, "O", 1, 1);
-		oWinCount = oWinCount + check(chessBoard, "O", -1, 1);
+		int xWinCount = checkOneChess(chessBoard, "X");
+		int oWinCount = checkOneChess(chessBoard, "O");
 		if (xWinCount == 1 && oWinCount == 0) {
 			return "X";
 		}
@@ -25,7 +16,16 @@ public class JING {
 		return "error";
 	}
 
-	private int check(String[][] chessBoard, String chess, int hengStep, int shuStep) {
+	private int checkOneChess(String[][] chessBoard, String chess) {
+		int winCount = 0;
+		winCount = winCount + checkOneChessAndOneWinType(chessBoard, chess, 0, 1);
+		winCount = winCount + checkOneChessAndOneWinType(chessBoard, chess, 1, 0);
+		winCount = winCount + checkOneChessAndOneWinType(chessBoard, chess, 1, 1);
+		winCount = winCount + checkOneChessAndOneWinType(chessBoard, chess, -1, 1);
+		return winCount;
+	}
+
+	private int checkOneChessAndOneWinType(String[][] chessBoard, String chess, int hengStep, int shuStep) {
 		int winCount = 0;
 		for (int startI = 0; startI < 3; startI++) {
 			for (int startJ = 0; startJ < 3; startJ++) {
