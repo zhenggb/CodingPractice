@@ -60,5 +60,9 @@ public class testPorter {
 	public void test买一套完整和1本第二集() {
 		assertSame( (long)(8 + (8 * 5 * 0.75)),new porter().price(new int[] {0,1,1,2,3,4}));
 	}
+	@Test
+	public void test买一套完整和1本第一集和1本第二集和1本第三集() {
+		assertSame( (long)(2 * (8 * 4 * 0.8)),new porter().price(new int[] {0,0,1,1,2,2,3,4}));
+	}
 
 }

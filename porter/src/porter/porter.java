@@ -22,9 +22,10 @@ public class porter {
 			int diff = statics[2]-statics[1] >= statics[0]?statics[0]:statics[2]-statics[1];
 			sum += diff*2*(4 * sigelPrice * discount4);
 			statics[0]-=diff;
-			statics[2]-=diff;
-			statics[3]-=diff;
-			statics[4]-=diff;
+			statics[1]-=diff;
+			statics[2]-=diff*2;
+			statics[3]-=diff*2;
+			statics[4]-=diff*2;
 		}
 		for(int i=0;i<statics.length;i++){
 			
