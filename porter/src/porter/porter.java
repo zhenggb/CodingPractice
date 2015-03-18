@@ -13,27 +13,44 @@ public class porter {
 
 	public long price(int[] booklist) {
 
+		long sum = 0;
 		this.booklist=booklist;
 		statc();
 		
-		
-		return compute();
+		if(statics[0] > 0 && statics[2] - statics[1] >0){
+			
+			int diff = statics[2]-statics[1] >= statics[0]?statics[0]:statics[2]-statics[1];
+			sum += diff*2*(4 * sigelPrice * discount4);
+			statics[0]-=diff;
+			statics[2]-=diff;
+			statics[3]-=diff;
+			statics[4]-=diff;
+		}
+		for(int i=0;i<statics.length;i++){
+			
+			if (statics[i]>0) {
+				int num = statics[i];
+				sum += calculate(5-i,num);
+				for(int j=i;j<statics.length;j++){
+					statics[j]-=num;
+				}
+			}
+		}
+		return sum;
 	}
 
-	private long compute() {
-		if (statics[0]==1) {
-			return (long) (5 * sigelPrice * discount5);
+	private long calculate(int i,int num) {
+		
+		long sameBatchSum=0;
+		
+		switch(i){
+		case 5:sameBatchSum = (long) (5 * sigelPrice * discount5)*num;break;
+		case 4:sameBatchSum = (long) (4 * sigelPrice * discount4)*num;break;
+		case 3:sameBatchSum = (long) (3 * sigelPrice * discount3)*num;break;
+		case 2:sameBatchSum = (long) (2 * sigelPrice * discount2)*num;break;
+		case 1:sameBatchSum = (long) (1 * sigelPrice * discount1)*num;break;
 		}
-		if (statics[1]==1) {
-			return (long) (4 * sigelPrice * discount4);
-		}
-		if (statics[2]==1) {
-			return (long) (3 * sigelPrice * discount3);
-		}
-		if (statics[3]==1) {
-			return (long) (2 * sigelPrice * discount2);
-		}
-		return (long) (booklist.length * sigelPrice * discount1);
+		return sameBatchSum;
 	}
 
 	private void statc() {
