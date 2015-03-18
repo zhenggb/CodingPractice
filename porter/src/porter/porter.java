@@ -6,10 +6,17 @@ public class porter {
 	private static final double discount2 = 1-0.05;
 	private static final double discount3 = 1-0.1;
 	private static final double discount4 = 1-0.2;
+	private static final double discount5 = 1-0.25;
 	private final static int sigelPrice = 8;
 
 	public long price(int[] booklist) {
 
+		if(booklist.length==5&&booklist[0]!=booklist[1] && booklist[0]!=booklist[2] && booklist[0]!=booklist[3] && booklist[0]!=booklist[4] &&
+				booklist[1]!=booklist[2] && booklist[1]!=booklist[3] && booklist[1]!=booklist[4] &&
+				booklist[2]!=booklist[3] && booklist[2]!=booklist[4] &&
+				booklist[3]!=booklist[4]){
+			return (long) (booklist.length*sigelPrice*discount5);
+		}
 		if(booklist.length==4&&booklist[0]!=booklist[1] && booklist[0]!=booklist[2] && booklist[0]!=booklist[3] &&
 				booklist[1]!=booklist[2] && booklist[1]!=booklist[3] &&
 				booklist[2]!=booklist[3]){
