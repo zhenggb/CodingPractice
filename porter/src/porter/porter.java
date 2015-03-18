@@ -9,33 +9,29 @@ public class porter {
 	private static final double discount5 = 1 - 0.25;
 	private final static int sigelPrice = 8;
 	private int[] booklist;
-	private int[] booklist_static = { 0, 0, 0, 0, 0 };
+	private int[] statics = { 0, 0, 0, 0, 0 };
 
 	public long price(int[] booklist) {
 
 		this.booklist=booklist;
 		statc();
 		
-		if (booklist.length == 5 && booklist[0] != booklist[1]
-				&& booklist[0] != booklist[2] && booklist[0] != booklist[3]
-				&& booklist[0] != booklist[4] && booklist[1] != booklist[2]
-				&& booklist[1] != booklist[3] && booklist[1] != booklist[4]
-				&& booklist[2] != booklist[3] && booklist[2] != booklist[4]
-				&& booklist[3] != booklist[4]) {
-			return (long) (booklist.length * sigelPrice * discount5);
+		
+		return compute();
+	}
+
+	private long compute() {
+		if (statics[0]==1) {
+			return (long) (5 * sigelPrice * discount5);
 		}
-		if (booklist.length == 4 && booklist[0] != booklist[1]
-				&& booklist[0] != booklist[2] && booklist[0] != booklist[3]
-				&& booklist[1] != booklist[2] && booklist[1] != booklist[3]
-				&& booklist[2] != booklist[3]) {
-			return (long) (booklist.length * sigelPrice * discount4);
+		if (statics[1]==1) {
+			return (long) (4 * sigelPrice * discount4);
 		}
-		if (booklist.length == 3 && booklist[0] != booklist[1]
-				&& booklist[0] != booklist[2] && booklist[1] != booklist[2]) {
-			return (long) (booklist.length * sigelPrice * discount3);
+		if (statics[2]==1) {
+			return (long) (3 * sigelPrice * discount3);
 		}
-		if (booklist.length == 2 && booklist[0] != booklist[1]) {
-			return (long) (booklist.length * sigelPrice * discount2);
+		if (statics[3]==1) {
+			return (long) (2 * sigelPrice * discount2);
 		}
 		return (long) (booklist.length * sigelPrice * discount1);
 	}
@@ -43,8 +39,22 @@ public class porter {
 	private void statc() {
 
 		for (int i = 0; i < booklist.length; i++) {
-			booklist_static[booklist[i]]++;
+			statics[booklist[i]]++;
 		}
+		for (int i = 0; i < statics.length; i++) {
+			for(int j=i+1;j<statics.length;j++){
+				if(statics[i]>statics[j]){
+					int tmp = statics[i];
+					statics[i] = statics[j];
+					statics[j] = tmp;
+				}
+			}
+		}
+		for (int i = 0; i < statics.length; i++) {
+			
+			System.out.print(statics[i]+" ");
+		}
+		System.out.println();
 	}
 
 }
