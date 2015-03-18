@@ -27,5 +27,9 @@ public class testPorter {
 	public void test买三本哈利波特第3集() {
 		assertSame( (long)(3*8),new porter().price(new int[] {2,2,2}));
 	}
+	@Test
+	public void test买两本哈利波特第3集和第4集() {
+		assertSame( (long)(2*8*(1-0.05)),new porter().price(new int[] {2,3}));
+	}
 
 }
