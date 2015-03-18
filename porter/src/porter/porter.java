@@ -68,11 +68,6 @@ public class porter {
 				}
 			}
 		}
-		for (int i = 0; i < statics.length; i++) {
-			
-			System.out.print(statics[i]+" ");
-		}
-		System.out.println();
 	}
 
 }
