@@ -2,12 +2,11 @@ package porter;
 
 public class porter {
 
+	final static int sigelPrice = 8;
+
 	public long price(int[] booklist) {
-		
-		if(booklist.length==1)
-			return 8;
-		return 0;
+
+		return booklist.length * sigelPrice;
 	}
 
-	
 }
