@@ -10,14 +10,14 @@ public class porter {
 	private final static int sigelPrice = 8;
 	private int[] booklist;
 	private int[] statics = { 0, 0, 0, 0, 0 };
+	long sum = 0;
 
 	public long price(int[] booklist) {
 
-		long sum = 0;
 		this.booklist=booklist;
-		statc();
+		statcAndSort();
 		
-		if(statics[0] > 0 && statics[2] - statics[1] >0){
+		if(existThreeAndFiveDiffrentBooks()){
 			
 			int diff = statics[2]-statics[1] >= statics[0]?statics[0]:statics[2]-statics[1];
 			sum += diff*2*(4 * sigelPrice * discount4);
@@ -40,6 +40,10 @@ public class porter {
 		return sum;
 	}
 
+	private boolean existThreeAndFiveDiffrentBooks() {
+		return statics[0] > 0 && statics[2] - statics[1] >0;
+	}
+
 	private long calculate(int i,int num) {
 		
 		long sameBatchSum=0;
@@ -54,7 +58,7 @@ public class porter {
 		return sameBatchSum;
 	}
 
-	private void statc() {
+	private void statcAndSort() {
 
 		for (int i = 0; i < booklist.length; i++) {
 			statics[booklist[i]]++;
