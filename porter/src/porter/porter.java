@@ -10,9 +10,9 @@ public class porter {
 	private final static int sigelPrice = 8;
 	private int[] booklist;
 	private int[] statics = { 0, 0, 0, 0, 0 };
-	long sum = 0;
+	double sum = 0;
 
-	public long total(int[] booklist) {
+	public double total(int ... booklist) {
 
 		this.booklist=booklist;
 		统计各集书的数量并从小到大排序();
@@ -51,18 +51,15 @@ public class porter {
 		return statics[0] > 0 && statics[2] - statics[1] >0;
 	}
 
-	private long calculate(int i,int num) {
-		
-		long sameBatchSum=0;
+	private double calculate(int i,int num) {
 		
 		switch(i){
-		case 5:sameBatchSum = (long) (5 * sigelPrice * discount5*num);break;
-		case 4:sameBatchSum = (long) (4 * sigelPrice * discount4*num);break;
-		case 3:sameBatchSum = (long) (3 * sigelPrice * discount3*num);break;
-		case 2:sameBatchSum = (long) (2 * sigelPrice * discount2*num);break;
-		case 1:sameBatchSum = (long) (1 * sigelPrice * discount1*num);break;
+		case 5:return (double) (5 * sigelPrice * discount5 * num);
+		case 4:return (double) (4 * sigelPrice * discount4 * num);
+		case 3:return (double) (3 * sigelPrice * discount3 * num);
+		case 2:return (double) (2 * sigelPrice * discount2 * num);
+		default:return (double) (1 * sigelPrice * discount1 * num);
 		}
-		return sameBatchSum;
 	}
 
 	private void 统计各集书的数量并从小到大排序() {
