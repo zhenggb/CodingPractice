@@ -12,21 +12,29 @@ public class porter {
 	private int[] statics = { 0, 0, 0, 0, 0 };
 	long sum = 0;
 
-	public long price(int[] booklist) {
+	public long total(int[] booklist) {
 
 		this.booklist=booklist;
-		statcAndSort();
-		
-		if(existThreeAndFiveDiffrentBooks()){
+		统计各集书的数量并从小到大排序();
+		计算三本书和五本书同时存在的总结();
+		其他情况累计总价();
+		return sum;
+	}
+
+	private void 计算三本书和五本书同时存在的总结() {
+		if(existThreeAndFiveBooks()){
 			
-			int diff = statics[2]-statics[1] >= statics[0]?statics[0]:statics[2]-statics[1];
-			sum += diff*2*(4 * sigelPrice * discount4);
-			statics[0]-=diff;
-			statics[1]-=diff;
-			statics[2]-=diff*2;
-			statics[3]-=diff*2;
-			statics[4]-=diff*2;
+			int numOfThreeAndFiveBooks = statics[2]-statics[1] >= statics[0]?statics[0]:statics[2]-statics[1];
+			sum += calculate(4,numOfThreeAndFiveBooks*2);
+			statics[0]-=numOfThreeAndFiveBooks;
+			statics[1]-=numOfThreeAndFiveBooks;
+			statics[2]-=numOfThreeAndFiveBooks*2;
+			statics[3]-=numOfThreeAndFiveBooks*2;
+			statics[4]-=numOfThreeAndFiveBooks*2;
 		}
+	}
+
+	private void 其他情况累计总价() {
 		for(int i=0;i<statics.length;i++){
 			
 			if (statics[i]>0) {
@@ -37,10 +45,9 @@ public class porter {
 				}
 			}
 		}
-		return sum;
 	}
 
-	private boolean existThreeAndFiveDiffrentBooks() {
+	private boolean existThreeAndFiveBooks() {
 		return statics[0] > 0 && statics[2] - statics[1] >0;
 	}
 
@@ -49,16 +56,16 @@ public class porter {
 		long sameBatchSum=0;
 		
 		switch(i){
-		case 5:sameBatchSum = (long) (5 * sigelPrice * discount5)*num;break;
-		case 4:sameBatchSum = (long) (4 * sigelPrice * discount4)*num;break;
-		case 3:sameBatchSum = (long) (3 * sigelPrice * discount3)*num;break;
-		case 2:sameBatchSum = (long) (2 * sigelPrice * discount2)*num;break;
-		case 1:sameBatchSum = (long) (1 * sigelPrice * discount1)*num;break;
+		case 5:sameBatchSum = (long) (5 * sigelPrice * discount5*num);break;
+		case 4:sameBatchSum = (long) (4 * sigelPrice * discount4*num);break;
+		case 3:sameBatchSum = (long) (3 * sigelPrice * discount3*num);break;
+		case 2:sameBatchSum = (long) (2 * sigelPrice * discount2*num);break;
+		case 1:sameBatchSum = (long) (1 * sigelPrice * discount1*num);break;
 		}
 		return sameBatchSum;
 	}
 
-	private void statcAndSort() {
+	private void 统计各集书的数量并从小到大排序() {
 
 		for (int i = 0; i < booklist.length; i++) {
 			statics[booklist[i]]++;
